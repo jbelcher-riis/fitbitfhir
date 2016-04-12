@@ -4,7 +4,7 @@ include_once('iHTTPRequest.php');
 class FitBitAccessRequest implements iHTTPRequest{
     
     public function makeRequest($endpoint=null, $parameters=null) {
-        $url = ACCESS_TOKEN_ENDPOINT."client_id=227PMB&grant_type=authorization_code&redirect_uri=http%3A%2F%2Ffitbitfhir.riis.com%2Ffitbit%2Ffitbitfhir%2FdataTransfer.php&code=".AUTH_TOKEN;
+        $url = ACCESS_TOKEN_ENDPOINT."client_id=227PMB&grant_type=authorization_code&redirect_uri=http%3A%2F%2Ffitbitfhir.riis.com%2Ffitbitfhir%2FdataTransfer.php&code=".AUTH_TOKEN;
         $ch = curl_init($url);
        
         if(isset($_GET["run"]))
