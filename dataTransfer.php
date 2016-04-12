@@ -8,7 +8,7 @@ include_once ("Helpers/Requests/FitBitAccessRequest.php");
 if(isset($_GET["run"]))
 {
     $accessRequest = new FitBitAccessRequest();
-    $accessRequest->makeRequest();
+    var_dump($accessRequest->makeRequest());
 }
 else{
     echo "I have a token";
