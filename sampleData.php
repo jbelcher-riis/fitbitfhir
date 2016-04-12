@@ -16,8 +16,8 @@ include_once("constants.php");
 $postRequester = new PostRequest();
 $getRequester = new GetRequest();
 
-$patId = "12345678900126";
-$devId = "FitBitDevice26";
+$patId = "123456789001";
+$devId = "FitBitDevice1";
 
 $response = json_decode($getRequester->makeRequest("Patient", array("identifier"=>$patId)));
 
