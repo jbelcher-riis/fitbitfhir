@@ -10,18 +10,19 @@ class Activity extends Request{
         
         $url = "GET https://api.fitbit.com/1/user/".$this->getTokenManager()->getUserId()."/activities/"
                 . "date/$date.json";
+        $header = "Authorization: Bearer ".$this->getTokenManager()->getAccessToken();
         
         $ch = curl_init();
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch, CURLOPT_HTTPHEADER,
-                array("Authorization: Bearer ".$this->getTokenManager()->getAccessToken()));
+                array($header));
 
         $output=curl_exec($ch);
 
         curl_close($ch);
-        var_dump($url);
+        var_dump($header);
         return $output;
     }
 }
