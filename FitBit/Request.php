@@ -28,7 +28,7 @@ abstract class Request {
      * 
      * @param Object $params
      */
-    function makeRequest($params)
+    function makeRequest($params = null)
     {
         
         if(isset($this->tokenManager->getRefreshToken()) && !empty($this->tokenManager->getRefreshToken()))

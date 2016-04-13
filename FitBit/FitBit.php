@@ -33,7 +33,8 @@ class FitBit {
 
     public function getActivity()
     {
-        $this->requestFactory->getRequest("Activity");
+        $request = $this->requestFactory->getRequest("Activity");
+        $request->makeRequest();
     }
     
     public function toObject()
