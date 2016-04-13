@@ -1,14 +1,11 @@
 <?php
 spl_autoload_register(function ($class_name) {
-    echo getcwd();
-  
-    if(file_exists($class_name.".php"))
+    if(file_exists("FitBit/".$class_name.".php"))
     {
-        echo "run";
-        include $class_name . '.php';
-    }elseif(file_exists("Requests/".$class_name.".php"))
+        include "FitBit/".$class_name . '.php';
+    }elseif(file_exists("FitBit/Requests/".$class_name.".php"))
     {
-        include "Requests/".$class_name.".php";
+        include "FitBit/Requests/".$class_name.".php";
     }
 });
 
