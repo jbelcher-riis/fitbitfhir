@@ -17,5 +17,5 @@ else{
    //refresh access token and use it to make call
     $accessRequest = new FitBitRefreshToken();
     $accessRequest->setRefreshToken(FITBIT_REFRESH_TOKEN);
-    var_dump($accessRequest->makeRequest());
+    var_dump(json_decode($accessRequest->makeRequest()));
 }
