@@ -17,7 +17,7 @@ class RequestFactory {
         $this->tokenManager = $tokenManager;
     }
     
-    function getRequest(String $request)
+    function getRequest($request)
     {
         switch ($request) {
             case "Activity":
