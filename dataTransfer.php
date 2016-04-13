@@ -9,6 +9,6 @@ $tokenManager = new TokenManager();
 $tokenManager->setUserId("3HHGQX");
 
 $fitbit = new FitBit($tokenManager);
-$response = $fitbit->getActivity("2016-04-13");
+$response = $fitbit->getActivity(date("Y-m-d"));
 
 var_dump($response);
