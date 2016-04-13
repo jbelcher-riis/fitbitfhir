@@ -20,6 +20,7 @@ class Activity extends Request{
         $output=curl_exec($ch);
 
         curl_close($ch);
+        var_dump($output);
         return $output;
     }
 }
