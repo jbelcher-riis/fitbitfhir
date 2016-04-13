@@ -20,7 +20,7 @@ class Activity extends Request{
         $output=curl_exec($ch);
 
         curl_close($ch);
-        var_dump($url);
+        var_dump($this->getTokenManager()->getAccessToken());
         return $output;
     }
 }
