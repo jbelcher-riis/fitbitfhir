@@ -30,8 +30,10 @@ abstract class Request {
      */
     function makeRequest($params = null)
     {
+        echo "run";
         if(!empty($this->tokenManager->getRefreshToken()))
         {
+            echo "run";
             if(!isset($_GET["code"]))
             {
                 echo "run";
