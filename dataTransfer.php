@@ -9,4 +9,4 @@ $tokenManager = new TokenManager();
 $tokenManager->setUserId("227PMB");
 
 $fitbit = new FitBit($tokenManager);
-$fitbit->getActivity();
+$fitbit->getActivity("2016-04-13");

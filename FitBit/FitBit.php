@@ -39,10 +39,10 @@ class FitBit {
         $this->requestFactory = new RequestFactory($tokenManger);
     }
 
-    public function getActivity()
+    public function getActivity($date)
     {
         $request = $this->requestFactory->getRequest("Activity");
-        $request->makeRequest();
+        $request->makeRequest($date);
     }
     
     public function toObject()
