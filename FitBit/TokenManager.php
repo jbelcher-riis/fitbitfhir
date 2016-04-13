@@ -89,7 +89,8 @@ class TokenManager {
         # Get the response
         $response = curl_exec($ch);
         curl_close($ch);
-var_dump($response);
+
+        var_dump($response);
         $objResponse = json_decode($response);
         
         $this->accessToken = $objResponse->access_token;
