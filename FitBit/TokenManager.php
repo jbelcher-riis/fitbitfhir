@@ -90,12 +90,17 @@ class TokenManager {
         $response = curl_exec($ch);
         curl_close($ch);
 
-        var_dump($response);
         $objResponse = json_decode($response);
         
-        $this->accessToken = $objResponse->access_token;
-        $this->refreshToken = $objResponse->refresh_token;
-        
+        if(property_exists($objResponse->success) && $objResponse->success == false)
+        {
+            return false;
+        }
+        else
+        {
+            $this->accessToken = $objResponse->access_token;
+            $this->refreshToken = $objResponse->refresh_token;
+        }
         return $response;
     }
 }
