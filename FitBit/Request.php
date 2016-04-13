@@ -50,7 +50,7 @@ abstract class Request {
             }
         }
         
-        return $this->getRequest();
+        return $this->getRequest($params);
     }
     
     protected abstract function getRequest($params=null);
