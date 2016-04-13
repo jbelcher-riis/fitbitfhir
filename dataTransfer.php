@@ -13,5 +13,8 @@ if(isset($_GET["code"]))
     var_dump($accessRequest->makeRequest());
 }
 else{
-    echo "I have a token";
+   //refresh access token and use it to make call
+    $accessRequest = new FitBitRefreshToken();
+    $accessRequest->setRefreshToken(FITBIT_REFRESH_TOKEN);
+    var_dump($accessRequest->makeRequest());
 }
