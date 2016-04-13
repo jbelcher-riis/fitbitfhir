@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Description of RequestFactory
  *
@@ -21,6 +20,7 @@ class RequestFactory {
     {
         switch ($request) {
             case "Activity":
+                require_once("Requests/Activity.php");
                 return new Activity($this->tokenManager);
                 break;
 
