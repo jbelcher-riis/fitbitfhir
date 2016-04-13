@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($class_name) {
     echo getcwd();
-    echo $class_name;
+    echo file_exists($class_name.".php");
     if(file_exists($class_name.".php"))
     {
         include $class_name . '.php';
