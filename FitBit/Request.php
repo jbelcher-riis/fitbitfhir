@@ -30,7 +30,7 @@ abstract class Request {
      */
     function makeRequest($params = null)
     {
-        
+        //manage the access token
         if(!empty($this->tokenManager->getRefreshToken()))
         {
             $this->tokenManager->refreshToken();
@@ -50,7 +50,7 @@ abstract class Request {
             }
         }
         
-        var_dump($this->tokenManager);
+        return $this->getRequest();
     }
     
     protected abstract function getRequest($params=null);

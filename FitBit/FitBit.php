@@ -42,7 +42,8 @@ class FitBit {
     public function getActivity($date)
     {
         $request = $this->requestFactory->getRequest("Activity");
-        $request->makeRequest($date);
+        $this->response = $request->makeRequest($date);
+        return $this->response;
     }
     
     public function toObject()
