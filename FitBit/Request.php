@@ -32,8 +32,16 @@ abstract class Request {
     {
         if(!empty($this->tokenManager->getRefreshToken()))
         {
-            //has a refresh token, get access token with refresh
-            $this->tokenManager->reauthorize();
+            if(!isset($_GET["code"]))
+            {
+                //has a refresh token, get access token with refresh
+                $this->tokenManager->reauthorize();
+            }
+            else
+            {
+                $this->tokenManager->setAuthToken($_GET["code"]);
+                $this->tokenManager->requestAccessToken();
+            }
         }
         else
         {
