@@ -76,7 +76,7 @@ class TokenManager {
     function requestAccessToken() {
         $url = "https://api.fitbit.com/oauth2/token?client_id=227PMB&grant_type=authorization_code&redirect_uri=http%3A%2F%2Ffitbitfhir.riis.com%2Ffitbitfhir%2FdataTransfer.php&code=".$this->getAuthToken();
         $ch = curl_init($url);
-       
+       echo $url;
         # Setting our options
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, 1);

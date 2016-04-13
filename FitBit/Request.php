@@ -31,14 +31,12 @@ abstract class Request {
     function makeRequest($params = null)
     {
         //manage the access token
-        echo "run";
         if(!empty($this->tokenManager->getRefreshToken()))
         {
             $this->tokenManager->refreshToken();
         }
         else
         {
-            echo "run";
             //have to re authorize to get access token
             if(!isset($_GET["code"]))
             {
@@ -47,11 +45,8 @@ abstract class Request {
             }
             else
             {
-                echo "run";
                 $this->tokenManager->setAuthToken($_GET["code"]);
-                echo "run";
                 $this->tokenManager->requestAccessToken();
-                echo "run";
             }
         }
         
