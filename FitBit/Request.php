@@ -34,6 +34,7 @@ abstract class Request {
         {
             if(!isset($_GET["code"]))
             {
+                echo "run";
                 //has a refresh token, get access token with refresh
                 $this->tokenManager->reauthorize();
             }
