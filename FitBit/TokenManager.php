@@ -91,7 +91,7 @@ class TokenManager {
         curl_close($ch);
 
         $objResponse = json_decode($response);
-        
+        var_dump($objResponse);
         $this->accessToken = $objResponse->access_token;
         $this->refreshToken = $objResponse->refresh_token;
         
