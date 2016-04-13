@@ -92,7 +92,7 @@ class TokenManager {
 
         $objResponse = json_decode($response);
         
-        if(property_exists($objResponse->success) && $objResponse->success == false)
+        if(property_exists($objResponse,"success") && $objResponse->success == false)
         {
             return false;
         }
