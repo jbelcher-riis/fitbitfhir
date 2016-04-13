@@ -19,7 +19,14 @@ class RequestFactory {
     
     function getRequest(String $request)
     {
-        
+        switch ($request) {
+            case "Activity":
+                return new Activity($this->tokenManager);
+                break;
+
+            default:
+                break;
+        }
     }
 
 }
