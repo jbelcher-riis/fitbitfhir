@@ -32,12 +32,21 @@ if(property_exists($response, "entry")) {
 
     $identifier->setUse("usual");
     $identifier->setValue($patId);
+    
+    $fitbitUserId = new Identifier();
+    $fitbitUserId->setUse("usual");
+    $fitbitUserId->setValue("fitbit-userid 3HHGQX");
 
+    $fitbitAuthCode = new Identifier();
+    $fitbitAuthCode->setUse("usual");
+    $fitbitAuthCode->setValue("");
+    
     $pat->setResourceType("Patient");
     $pat->setGender("male");
     $pat->setActive(true);
     $pat->addName($name);
     $pat->addIdentifier($identifier);
+    $pat->addIdentifier($fitbitUserId);
     
     $patientResponse = json_decode($postRequester->makeRequest("Patient", $pat)); 
     

@@ -46,6 +46,7 @@ abstract class Request {
             else
             {
                 $this->tokenManager->setAuthToken($_GET["code"]);
+                echo $_GET["code"];
                 $this->tokenManager->requestAccessToken();
             }
         }
