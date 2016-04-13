@@ -30,10 +30,8 @@ abstract class Request {
      */
     function makeRequest($params = null)
     {
-        echo "run";
-        if(isset($this->tokenManager->getRefreshToken()) && !empty($this->tokenManager->getRefreshToken()))
+        if(!empty($this->tokenManager->getRefreshToken()))
         {
-            echo "run";
             //has a refresh token, get access token with refresh
             $this->tokenManager->reauthorize();
         }
