@@ -33,6 +33,11 @@ abstract class Request {
         echo "run";
         if(!empty($this->tokenManager->getRefreshToken()))
         {
+            
+        }
+        else
+        {
+            //have to re authorize to get access token
             echo "run";
             if(!isset($_GET["code"]))
             {
@@ -45,10 +50,6 @@ abstract class Request {
                 $this->tokenManager->setAuthToken($_GET["code"]);
                 $this->tokenManager->requestAccessToken();
             }
-        }
-        else
-        {
-            //have to re authorize to get access token
         }
     }
     
