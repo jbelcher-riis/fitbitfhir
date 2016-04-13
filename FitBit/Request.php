@@ -41,5 +41,5 @@ abstract class Request {
         }
     }
     
-    protected abstract function getRequest();
+    protected abstract function getRequest($params=null);
 }
