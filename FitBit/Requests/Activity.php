@@ -8,7 +8,7 @@ class Activity extends Request{
     
     function getRequest($date = null) {
         
-        $url = "GET https://api.fitbit.com/1/user/".$this->getTokenManager()->getUserId()."/activities/"
+        $url = "https://api.fitbit.com/1/user/".$this->getTokenManager()->getUserId()."/activities/"
                 . "date/$date.json";
         $header = "Authorization: Bearer ".$this->getTokenManager()->getAccessToken();
         
