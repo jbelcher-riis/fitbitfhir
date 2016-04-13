@@ -102,7 +102,11 @@ class TokenManager {
         $response = curl_exec($ch);
         curl_close($ch);
 
-        var_dump(json_decode($response));
+        $objResponse = json_decode($response);
+        
+        $this->accessToken = $objResponse->access_token;
+        $this->refreshToken = $objResponse->refresh_token;
+        
         return $response;
     }
 }

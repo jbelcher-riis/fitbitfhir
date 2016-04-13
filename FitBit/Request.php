@@ -38,10 +38,8 @@ abstract class Request {
         else
         {
             //have to re authorize to get access token
-            echo "run";
             if(!isset($_GET["code"]))
             {
-                echo "run";
                 //has a refresh token, get access token with refresh
                 $this->tokenManager->reauthorize();
             }
@@ -51,6 +49,8 @@ abstract class Request {
                 $this->tokenManager->requestAccessToken();
             }
         }
+        
+        var_dump($this->tokenManager);
     }
     
     protected abstract function getRequest($params=null);
