@@ -1,7 +1,4 @@
 <?php
-require_once("../Request.php");
-require_once("../TokenManager.php");
-
 /**
  * Description of Activity
  *

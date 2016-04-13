@@ -1,5 +1,13 @@
 <?php
-require_once("RequestFactory.php");
+spl_autoload_register(function ($class_name) {
+    if(file_exists($class_name.".php"))
+    {
+        include $class_name . '.php';
+    }elseif(file_exists("Requests/".$class_name.".php"))
+    {
+        include "Requests/".$class_name.".php";
+    }
+});
 
 /**
  * Description of FitBit
