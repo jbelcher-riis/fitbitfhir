@@ -31,7 +31,7 @@ abstract class Request {
     function makeRequest($params = null)
     {
         //manage the access token
-        if(!empty($this->tokenManager->getRefreshToken()))
+        if($this->tokenManager->getRefreshToken() != null && !empty($this->tokenManager->getRefreshToken()))
         {
             $this->tokenManager->refreshToken();
         }
