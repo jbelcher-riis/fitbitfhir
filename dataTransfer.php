@@ -11,4 +11,4 @@ $tokenManager->setUserId("3HHGQX");
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
-var_dump($response);
+$tokenManager->updateRefreshToken();

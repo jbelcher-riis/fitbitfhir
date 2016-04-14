@@ -103,4 +103,22 @@ class TokenManager {
         }
         return $response;
     }
+    
+    function updateRefreshToken()
+    {
+        $tokens = "";
+        if(file_exists("/home/ubuntu/tokens.json"))
+        {
+            $tokens = file_get_contents("/home/ubuntu/tokens.json");
+        }else{
+            $tokens = file_get_contents("tokens.json");
+        }
+
+        $tokens = json_decode($tokens);
+        
+        $tokens->refreshToken = $this->refreshToken;
+        $tokens->fitbitId = "3HHGQX";
+        
+        file_put_contents("tokens.json", json_encode($tokens));
+    }
 }

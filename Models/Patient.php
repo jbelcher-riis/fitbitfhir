@@ -1,5 +1,5 @@
 <?php
-class Patient implements JsonSerializable
+class PatientRequest implements JsonSerializable
 {
 	private $resourceType = "";
 	private $identifier = array();

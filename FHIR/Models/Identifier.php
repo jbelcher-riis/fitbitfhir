@@ -20,6 +20,12 @@ class Identifier implements JsonSerializable{
     function setValue($value) {
         $this->value = $value;
     }
+
+    function createFromResult($result)
+    {
+        $this->use = $result->use;
+        $this->value = $result->value;
+    }
     
     public function jsonSerialize() 
     {

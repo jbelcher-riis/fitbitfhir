@@ -24,7 +24,7 @@ $response = json_decode($getRequester->makeRequest("Patient", array("identifier"
 if(property_exists($response, "entry")) {
     return http_response_code(409);
 } else {
-    $pat = new Patient;
+    $pat = new PatientRequest;
     $name = new Name;
     $identifier = new Identifier();
 
