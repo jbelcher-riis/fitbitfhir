@@ -4,7 +4,7 @@
  *
  * @author jbelcher
  */
-class RequestFactory {
+class FitBitRequestFactory {
     
     /**
      *

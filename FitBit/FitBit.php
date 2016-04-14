@@ -21,7 +21,7 @@ class FitBit {
     private $tokenManger;
     /**
      *
-     * @var RequestFactory 
+     * @var FitbitRequestFactory 
      */
     private $requestFactory;
     /**
@@ -36,7 +36,7 @@ class FitBit {
      */
     function __construct(TokenManager $tokenManger) {
         $this->tokenManger = $tokenManger;
-        $this->requestFactory = new RequestFactory($tokenManger);
+        $this->requestFactory = new FitBitRequestFactory($tokenManger);
     }
 
     public function getActivity($date)
