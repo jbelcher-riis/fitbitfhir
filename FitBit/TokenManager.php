@@ -123,4 +123,22 @@ class TokenManager {
         
         file_put_contents($path, json_encode($tokens));
     }
+    
+    function readTokens()
+    {
+        $tokens = "";
+        $path = "";
+        if(file_exists("/home/ubuntu/tokens.json"))
+        {
+            $path = "/home/ubuntu/tokens.json";
+            
+        }else{
+            $path = "tokens.json";
+        }
+        $tokens = file_get_contents($path);
+        $tokens = json_decode($tokens);
+        
+        $this->refreshToken = $tokens->refreshToken;
+        $this->userId = $tokens->fitbitUserId;
+    }
 }
