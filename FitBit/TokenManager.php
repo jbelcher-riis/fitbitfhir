@@ -100,6 +100,7 @@ class TokenManager {
         {
             $this->accessToken = $objResponse->access_token;
             $this->refreshToken = $objResponse->refresh_token;
+            var_dump($this);
         }
         return $response;
     }
