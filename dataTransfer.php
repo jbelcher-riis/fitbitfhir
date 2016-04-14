@@ -21,6 +21,6 @@ $response = $fitbit->getActivity(date("Y-m-d"));
 
 
 
-var_dump($patient);
+//var_dump($patient);
 //save new refresh token
 $tokenManager->updateRefreshToken();
