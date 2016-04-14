@@ -6,8 +6,6 @@ require_once("FitBit/FitBit.php");
 require_once("FitBit/TokenManager.php");
 require_once("FHIR/FHIR.php");
 
-$fhirIdentifier = $_GET["identifier"];
-
 $tokenManager = new TokenManager();
 $tokenManager->readTokens();
 
@@ -15,8 +13,13 @@ $tokenManager->readTokens();
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
-$fhir = new FHIR();
-$patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
+
+    //$fhirIdentifier = $_GET["identifier"];
+    
+    $fhir = new FHIR();
+    $patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
+
+
 
 var_dump($patient);
 //save new refresh token
