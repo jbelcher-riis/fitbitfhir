@@ -6,9 +6,13 @@ require_once("FitBit/FitBit.php");
 require_once("FitBit/TokenManager.php");
 
 $tokenManager = new TokenManager();
-$tokenManager->setUserId("3HHGQX");
+$tokenManager->readTokens();
+
+var_dump($tokenManager);
 
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
 $tokenManager->updateRefreshToken();
+
+var_dump($response);
