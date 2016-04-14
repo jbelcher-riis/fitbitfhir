@@ -107,18 +107,20 @@ class TokenManager {
     function updateRefreshToken()
     {
         $tokens = "";
+        $path = "";
         if(file_exists("/home/ubuntu/tokens.json"))
         {
-            $tokens = file_get_contents("/home/ubuntu/tokens.json");
+            $path = "/home/ubuntu/tokens.json";
+            
         }else{
-            $tokens = file_get_contents("tokens.json");
+            $path = "tokens.json";
         }
-
+        $tokens = file_get_contents($path);
         $tokens = json_decode($tokens);
         
         $tokens->refreshToken = $this->refreshToken;
         $tokens->fitbitId = "3HHGQX";
         
-        file_put_contents("tokens.json", json_encode($tokens));
+        file_put_contents($path, json_encode($tokens));
     }
 }
