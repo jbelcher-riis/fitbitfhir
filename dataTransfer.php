@@ -16,8 +16,8 @@ $response = $fitbit->getActivity(date("Y-m-d"));
 
     
     
-    $fhir = new FHIR();
-    $patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
+$fhir = new FHIR();
+$patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId());
 
 
 
