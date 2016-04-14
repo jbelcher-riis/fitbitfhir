@@ -17,7 +17,7 @@ $response = $fitbit->getActivity(date("Y-m-d"));
     //$fhirIdentifier = $_GET["identifier"];
     
     $fhir = new FHIR();
-    $patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
+   // $patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
 
 
 
