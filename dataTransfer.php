@@ -8,8 +8,6 @@ require_once("FitBit/TokenManager.php");
 $tokenManager = new TokenManager();
 $tokenManager->readTokens();
 
-var_dump($tokenManager);
-
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
