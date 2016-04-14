@@ -119,7 +119,7 @@ class TokenManager {
         $tokens = json_decode($tokens);
         
         $tokens->refreshToken = $this->refreshToken;
-        $tokens->fitbitId = "3HHGQX";
+        $tokens->fitbitUserId = "3HHGQX";
         
         file_put_contents($path, json_encode($tokens));
     }
