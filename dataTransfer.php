@@ -4,13 +4,20 @@ ini_set('display_errors', 1);
 
 require_once("FitBit/FitBit.php");
 require_once("FitBit/TokenManager.php");
+require_once("FHIR/FHIR.php");
+
+$fhirIdentifier = $_GET["identifier"];
 
 $tokenManager = new TokenManager();
 $tokenManager->readTokens();
 
+//get fitbit activity
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
-$tokenManager->updateRefreshToken();
+$fhir = new FHIR();
+$patient = $fhir->getPatientWithIdentifier($fhirIdentifier);
 
-var_dump($response);
+var_dump($patient);
+//save new refresh token
+$tokenManager->updateRefreshToken();
