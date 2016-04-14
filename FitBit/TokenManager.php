@@ -100,7 +100,7 @@ class TokenManager {
         {
             $this->accessToken = $objResponse->access_token;
             $this->refreshToken = $objResponse->refresh_token;
-            var_dump($objResponse);
+            $this->userId = $objResponse->user_id;
         }
         return $response;
     }
@@ -120,7 +120,7 @@ class TokenManager {
         $tokens = json_decode($tokens);
         
         $tokens->refreshToken = $this->refreshToken;
-        $tokens->fitbitUserId = "3HHGQX";
+        $tokens->fitbitUserId = $this->userId;
         
         file_put_contents($path, json_encode($tokens));
     }
