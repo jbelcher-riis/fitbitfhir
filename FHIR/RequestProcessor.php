@@ -64,6 +64,7 @@ class RequestProcessor {
         if(curl_errno($ch)){
             echo 'Curl error: ' . curl_error($ch);
         }
+        print_r(curl_getinfo($ch));
         curl_close($ch);
         
         return $response;
