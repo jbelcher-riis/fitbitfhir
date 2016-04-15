@@ -55,7 +55,7 @@ else
     
     $observation->setValueQuantity($quantity);
     
-    var_dump($fhir->updateObservation($observation));
+    $fhir->updateObservation($observation);
     
 }
 

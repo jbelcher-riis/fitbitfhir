@@ -45,7 +45,8 @@ class RequestProcessor {
         {
             curl_setopt($ch, CURLOPT_POST, 1);
         }
-        else if($this->request->getRequestType() == "PUT"){
+        else if($this->request->getRequestType() == "PUT")
+        {
             $url .= "/".$this->request->getParams()->getId();
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             
@@ -59,6 +60,10 @@ class RequestProcessor {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         # Get the response
         $response = curl_exec($ch);
+        
+        if(curl_errno($ch)){
+            echo 'Curl error: ' . curl_error($ch);
+        }
         curl_close($ch);
         
         return $response;
