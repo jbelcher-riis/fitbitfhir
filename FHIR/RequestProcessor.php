@@ -49,7 +49,8 @@ class RequestProcessor {
             $url .= "/".$this->request->getParams()->getId();
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             
-            echo json_encode($this->request->getParams());
+            echo $url."\n\n";
+            echo json_encode($this->request->getParams())."\n\n";
         }
         
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->request->getParams()));
