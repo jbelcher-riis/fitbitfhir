@@ -48,6 +48,7 @@ if(empty($observation->getId()))
 }
 else
 {
+    var_dump($observation);
     //update observation
     $quantity = new Quantity();
     $quantity->setUnit("Steps");
