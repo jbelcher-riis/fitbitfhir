@@ -22,7 +22,7 @@ class RequestFactory {
                 break;
             case "GetDeviceWithPatientId":
                 $request = new DeviceRequest();
-                $request->setParams(array("manufacturer"=>"FitBit", "patient"=>$params));
+                $request->setParams(array("manufacturer"=>"FitBit", "patient"=>$params, "_count"=>1));
                 return $request;
                 break;
             default:
