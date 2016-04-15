@@ -55,9 +55,8 @@ else
     
     $observation->setValueQuantity($quantity);
     
-    var_dump($observation);
+    var_dump($fhir->updateObservation($observation));
     
-    $fhir->updateObservation($observation);
 }
 
 //save new refresh token
