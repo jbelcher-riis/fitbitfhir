@@ -72,7 +72,10 @@ class FHIR {
         
         $this->response = $this->requestProcessor->makeRequest();
         
-        var_dump($this->response);
+        $device = new Device();
+        $device->createFromResult($this->response);
+        
+        return $device;
     }
     
     function toObject()

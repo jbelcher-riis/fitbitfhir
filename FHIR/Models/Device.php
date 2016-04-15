@@ -52,6 +52,43 @@ class Device implements JsonSerializable{
         $this->identifier[] = $_identifier;
     }
     
+    /**
+    * 
+    * @param stdObject $result
+    * @return boolean
+    */
+   public function createFromResult($result)
+   {
+       if(property_exists($result, "entry")) //search result
+       {
+           $result = $result->entry[0]->resource;
+       }
+
+       if(!property_exists($result, "id")) //direct find
+       {
+           return false;
+       }
+
+       $this->manufacturer = $result->manufacturer;
+       $this->resourceType = $result->resourceType;
+       $this->status = $result->status;
+
+       $patientRef = new Reference();
+       $patientRef->setReference($result->patient);
+       $this->patient = $patient;
+       
+       //populate identifiers
+       foreach ($result->identifier as $value) {
+           $identifier = new Identifier();
+           $identifier->createFromResult($value);
+
+           $this->identifier[] = $identifier;
+       }
+
+       
+
+   }
+    
     public function jsonSerialize() {
         return [
             "resourceType"=>$this->resourceType,

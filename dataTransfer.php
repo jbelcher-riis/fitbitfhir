@@ -17,6 +17,7 @@ $fhir = new FHIR();
 $patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId());
 
 $device = $fhir->getDeviceWithPatientId($patient->getId());
+var_dump($device);
 
 
 
