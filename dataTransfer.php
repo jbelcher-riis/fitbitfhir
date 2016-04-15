@@ -43,6 +43,8 @@ if(empty($observation->getId()))
     $observation->setValueQuantity($quantity);
     $observation->setDevice($deviceReference);
     
+    var_dump($fhir->createObservation($observation));
+    
 }
 else
 {
