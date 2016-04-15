@@ -104,7 +104,7 @@ class FHIR {
         
         $this->response = $this->requestProcessor->makeRequest();
         
-        var_dump($this->response );
+        $this->response;
     }
     
     /**
@@ -119,7 +119,7 @@ class FHIR {
         
         $this->response = $this->requestProcessor->makeRequest();
         
-        var_dump($this->response );
+        $this->response;
     }
     
     function toObject()
