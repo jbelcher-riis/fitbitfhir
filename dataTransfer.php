@@ -23,10 +23,11 @@ $observation = $fhir->getSingleObservations(array("_count"=>1,"subject"=>$patien
 
 if(empty($observation->getId()))
 {
+    var_dump($activity);
     //create observation
     $quantity = new Quantity();
     $quantity->setUnit("Steps");
-    $quantity->setValue($activity->steps);
+    $quantity->setValue($activity->Steps);
     
     $patRefence = new Reference();
     $patRefence->setReference("Patient/".$patient->getId());
@@ -35,7 +36,7 @@ if(empty($observation->getId()))
     $deviceReference->setReference("Device/".$device->getId());
     
     $dateTime = new DateTime();
-    $dt = $$dateTime->format("Y-m-d\TH:i:sP");
+    $dt = $dateTime->format("Y-m-d\TH:i:sP");
     
     $observation->setIssued($dt);
     $observation->setEffectiveDateTime($dt);
