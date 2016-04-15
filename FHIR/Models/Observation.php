@@ -6,7 +6,25 @@ class Observation implements JsonSerializable{
     private $valueQuantity = null; //quantity obj
     private $device = null; //reference obj
     private $subject = null; //reference obj
-            
+    private $effectiveDateTime = "";
+    private $id = "";        
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function getEffectiveDateTime() {
+        return $this->effectiveDateTime;
+    }
+
+    function setEffectiveDateTime($effectiveDateTime) {
+        $this->effectiveDateTime = $effectiveDateTime;
+    }
+
     function getResourceType() {
         return $this->resourceType;
     }
@@ -62,7 +80,9 @@ class Observation implements JsonSerializable{
        $this->issued = $result->issued;
        $this->resourceType = $result->resourceType;
        $this->valueQuantity = $result->valueQuantity;
-
+       $this->effectiveDateTime = $result->effectiveDateTime;
+       $this->id = $result->id;
+       
        $patientRef = new Reference();
        $patientRef->setReference($result->subject);
        $this->subject = $patientRef;
@@ -74,6 +94,8 @@ class Observation implements JsonSerializable{
     
     public function jsonSerialize() {
         return [
+            "effectiveDateTime"=>$this->effectiveDateTime,
+            "id"=>$this->id,
             "resourceType"=>$this->resourceType,
             "issued"=>$this->issued,
             "valueQuantity"=>$this->valueQuantity,

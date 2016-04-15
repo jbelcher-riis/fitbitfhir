@@ -83,6 +83,9 @@ if(property_exists($response, "entry")) {
     $observation1->setIssued("2016-04-03T15:30:10+01:00");
     $observation2->setIssued("2016-04-04T15:30:10+01:00");
     
+    $observation1->setEffectiveDateTime("2016-04-03T15:30:10+01:00");
+    $observation2->setEffectiveDateTime("2016-04-04T15:30:10+01:00");
+    
     $observation1->setSubject($patRefence);
     $observation2->setSubject($patRefence);
     
