@@ -46,7 +46,7 @@ class RequestProcessor {
             curl_setopt($ch, CURLOPT_POST, 1);
         }
         else if($this->request->getRequestType() == "PUT"){
-            $url .= "/".$this->request->getId();
+            $url .= "/".$this->request->getParams->getId();
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
         }
         
