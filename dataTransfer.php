@@ -12,7 +12,7 @@ $tokenManager->readTokens();
 
 //get fitbit activity
 $fitbit = new FitBit($tokenManager);
-$activity = $fitbit->getActivity(date("Y-m-d"));
+$activity = json_decode($fitbit->getActivity(date("Y-m-d")));
     
 $fhir = new FHIR();
 $patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId()); // get patient
@@ -23,7 +23,6 @@ $observation = $fhir->getSingleObservations(array("_count"=>1,"subject"=>$patien
 
 if(empty($observation->getId()))
 {
-    var_dump($activity);
     //create observation
     $quantity = new Quantity();
     $quantity->setUnit("Steps");
