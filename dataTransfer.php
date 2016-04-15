@@ -27,7 +27,7 @@ if(empty($observation->getId()))
     //create observation
     $quantity = new Quantity();
     $quantity->setUnit("Steps");
-    $quantity->setValue($activity->Steps);
+    $quantity->setValue($activity->summery->steps);
     
     $patRefence = new Reference();
     $patRefence->setReference("Patient/".$patient->getId());
