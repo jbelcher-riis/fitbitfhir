@@ -83,13 +83,8 @@ class Observation implements JsonSerializable{
        $this->effectiveDateTime = $result->effectiveDateTime;
        $this->id = $result->id;
        
-       $patientRef = new Reference();
-       $patientRef->setReference($result->subject);
-       $this->subject = $patientRef;
-       
-       $deviceRef = new Reference();
-       $deviceRef->setReference($result->device);
-       $this->device = $deviceRef;
+       $this->subject = $result->subject;
+       $this->device = $result->device;
     }
     
     public function jsonSerialize() {
