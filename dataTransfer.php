@@ -13,7 +13,7 @@ $tokenManager->readTokens();
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
 
-
+var_dump($response);
     
     
 $fhir = new FHIR();
