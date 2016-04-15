@@ -28,7 +28,7 @@ class RequestProcessor {
         {
             return $this->getRequest();
         } 
-        else if($this->request->getRequestType() == "POST")
+        else if($this->request->getRequestType() == "POST" || $this->request->getRequestType() == "PUT")
         {
             return $this->postRequest();
         }

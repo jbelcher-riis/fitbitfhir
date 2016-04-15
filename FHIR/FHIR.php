@@ -107,6 +107,21 @@ class FHIR {
         var_dump($this->response );
     }
     
+    /**
+     * 
+     * @param Observation $observation
+     */
+    function updateObservation(Observation $observation)
+    {
+        $request = $this->requestFactory->createRequest("UpdateObservation", $observation);
+        
+        $this->requestProcessor->setRequest($request);
+        
+        $this->response = $this->requestProcessor->makeRequest();
+        
+        var_dump($this->response );
+    }
+    
     function toObject()
     {
         return json_decode($this->response);

@@ -35,6 +35,11 @@ class RequestFactory {
                 $request->setParams($params);
                 return $request;
                 break;
+            case "UpdateObservation":
+                $request = new ObservationUpdateRequest();
+                $request->setParams($params);
+                return $request;
+                break;
             default:
                 break;
         }

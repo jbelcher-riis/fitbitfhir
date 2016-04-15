@@ -43,12 +43,19 @@ if(empty($observation->getId()))
     $observation->setValueQuantity($quantity);
     $observation->setDevice($deviceReference);
     
-    var_dump($fhir->createObservation($observation));
+    $fhir->createObservation($observation);
     
 }
 else
 {
     //update observation
+    $quantity = new Quantity();
+    $quantity->setUnit("Steps");
+    $quantity->setValue($activity->summary->steps);
+    
+    $observation->setValueQuantity($quantity);
+    
+    $fhir->updateObservation($observation);
 }
 
 //save new refresh token
