@@ -92,6 +92,21 @@ class FHIR {
         return $observation;
     }
     
+    /**
+     * 
+     * @param Observation $observation
+     */
+    function createObservation(Observation $observation)
+    {
+        $request = $this->requestFactory->createRequest("CreateObservation", $observation);
+        
+        $this->requestProcessor->setRequest($request);
+        
+        $this->response = $this->requestProcessor->makeRequest();
+        
+        var_dump($this->response );
+    }
+    
     function toObject()
     {
         return json_decode($this->response);

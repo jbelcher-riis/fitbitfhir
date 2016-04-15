@@ -30,8 +30,26 @@ class RequestProcessor {
         } 
         else if($this->request->getRequestType() == "POST")
         {
-            
+            return $this->postRequest();
         }
+    }
+    
+    private function postRequest() {
+        $url = BASE_URL.$this->request->getSubject();
+        $ch = curl_init($url);
+       
+        # Setting our options
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->request->getParams()));
+        curl_setopt($ch, CURLOPT_HTTPHEADER,
+                array("Content-type: application/json","Accept: application/json"));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        # Get the response
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        return $response;
     }
     
     private function getRequest() {
