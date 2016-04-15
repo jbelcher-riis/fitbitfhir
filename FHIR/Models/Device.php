@@ -75,7 +75,7 @@ class Device implements JsonSerializable{
 
        $patientRef = new Reference();
        $patientRef->setReference($result->patient);
-       $this->patient = $patient;
+       $this->patient = $patientRef;
        
        //populate identifiers
        foreach ($result->identifier as $value) {
