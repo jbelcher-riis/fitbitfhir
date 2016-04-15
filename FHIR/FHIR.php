@@ -73,7 +73,7 @@ class FHIR {
         $this->response = $this->requestProcessor->makeRequest();
         
         $device = new Device();
-        $device->createFromResult($this->response);
+        $device->createFromResult(json_decode($this->response));
         
         return $device;
     }
