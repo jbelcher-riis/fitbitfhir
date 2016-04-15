@@ -7,6 +7,15 @@ class Device implements JsonSerializable{
     private $status = "";
     private $manufacturer = "";
     private $patient = null;
+    private $id = "";
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
     
     function getResourceType() {
         return $this->resourceType;
@@ -72,6 +81,7 @@ class Device implements JsonSerializable{
        $this->manufacturer = $result->manufacturer;
        $this->resourceType = $result->resourceType;
        $this->status = $result->status;
+       $this->id = $result->id;
 
        $patientRef = new Reference();
        $patientRef->setReference($result->patient);
@@ -84,13 +94,11 @@ class Device implements JsonSerializable{
 
            $this->identifier[] = $identifier;
        }
-
-       
-
    }
     
     public function jsonSerialize() {
         return [
+            "id"=>$this->id,
             "resourceType"=>$this->resourceType,
             "identifier"=>$this->identifier,
             "status"=>$this->status,

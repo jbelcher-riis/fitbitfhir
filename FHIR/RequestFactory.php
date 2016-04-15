@@ -25,6 +25,11 @@ class RequestFactory {
                 $request->setParams(array("manufacturer"=>"FitBit", "patient"=>$params, "_count"=>1));
                 return $request;
                 break;
+            case "GetObservation":
+                $request = new ObservationRequest();
+                $request->setParams($params);
+                return $request;
+                break;
             default:
                 break;
         }

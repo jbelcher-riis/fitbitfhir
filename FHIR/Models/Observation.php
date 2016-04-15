@@ -47,6 +47,31 @@ class Observation implements JsonSerializable{
         $this->issued = $issued;
     }
     
+    public function createFromResult($result)
+    {
+       if(property_exists($result, "entry")) //search result
+       {
+           $result = $result->entry[0]->resource;
+       }
+
+       if(!property_exists($result, "id")) //direct find
+       {
+           return false;
+       }
+
+       $this->issued = $result->issued;
+       $this->resourceType = $result->resourceType;
+       $this->valueQuantity = $result->valueQuantity;
+
+       $patientRef = new Reference();
+       $patientRef->setReference($result->subject);
+       $this->subject = $patientRef;
+       
+       $deviceRef = new Reference();
+       $deviceRef->setReference($result->device);
+       $this->device = $deviceRef;
+    }
+    
     public function jsonSerialize() {
         return [
             "resourceType"=>$this->resourceType,

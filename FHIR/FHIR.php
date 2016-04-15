@@ -78,6 +78,20 @@ class FHIR {
         return $device;
     }
     
+    function getSingleObservations($params)
+    {
+        $request = $this->requestFactory->createRequest("GetObservation", $params);
+       
+        $this->requestProcessor->setRequest($request);
+        
+        $this->response = $this->requestProcessor->makeRequest();
+        
+        $observation = new Observation();
+        $observation->createFromResult(json_decode($this->response));
+        
+        return $observation;
+    }
+    
     function toObject()
     {
         return json_decode($this->response);

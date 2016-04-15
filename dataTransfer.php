@@ -17,9 +17,10 @@ $fhir = new FHIR();
 $patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId());
 
 $device = $fhir->getDeviceWithPatientId($patient->getId());
-var_dump($device);
 
+$observation = $fhir->getSingleObservations(array("_count"=>1,"subject"=>$patient->getId(),"device"=>$device->getId()));
 
+var_dump($observation);
 
 //save new refresh token
 $tokenManager->updateRefreshToken();
