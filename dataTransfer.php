@@ -48,13 +48,14 @@ if(empty($observation->getId()))
 }
 else
 {
-    var_dump($observation);
     //update observation
     $quantity = new Quantity();
     $quantity->setUnit("Steps");
     $quantity->setValue($activity->summary->steps);
     
     $observation->setValueQuantity($quantity);
+    
+    var_dump($observation);
     
     $fhir->updateObservation($observation);
 }
