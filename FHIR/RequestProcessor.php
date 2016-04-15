@@ -36,7 +36,7 @@ class RequestProcessor {
     
     private function postRequest() {
         $url = BASE_URL.$this->request->getSubject();
-        $ch = curl_init($url);
+        $ch = curl_init();
        
         # Setting our options
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -49,11 +49,9 @@ class RequestProcessor {
         {
             $url .= "/".$this->request->getParams()->getId();
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-            
-            echo $url."\n\n";
-            echo json_encode($this->request->getParams())."\n\n";
         }
         
+        curl_setopt($ch, CURLOPT_URL, $url); 
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->request->getParams()));
         curl_setopt($ch, CURLOPT_HTTPHEADER,
                 array("Content-type: application/json","Accept: application/json"));
@@ -61,10 +59,6 @@ class RequestProcessor {
         # Get the response
         $response = curl_exec($ch);
         
-        if(curl_errno($ch)){
-            echo 'Curl error: ' . curl_error($ch);
-        }
-        print_r(curl_getinfo($ch));
         curl_close($ch);
         
         return $response;
