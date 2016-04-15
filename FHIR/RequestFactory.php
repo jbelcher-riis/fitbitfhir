@@ -20,7 +20,11 @@ class RequestFactory {
                 $request->setParams(array("identifier"=>$params));
                 return $request;
                 break;
-
+            case "GetDeviceWithPatientId":
+                $request = new DeviceRequest();
+                $request->setParams(array("manufacturer"=>"FitBit", "patient"=>$params));
+                return $request;
+                break;
             default:
                 break;
         }

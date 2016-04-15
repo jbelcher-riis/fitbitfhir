@@ -12,15 +12,13 @@ $tokenManager->readTokens();
 //get fitbit activity
 $fitbit = new FitBit($tokenManager);
 $response = $fitbit->getActivity(date("Y-m-d"));
-
-var_dump($response);
-    
     
 $fhir = new FHIR();
 $patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId());
 
+$device = $fhir->getDeviceWithPatientId($patient->getId());
 
 
-var_dump($patient);
+
 //save new refresh token
 $tokenManager->updateRefreshToken();

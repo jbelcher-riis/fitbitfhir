@@ -64,9 +64,15 @@ class FHIR {
        
     }
     
-    function createBasic(array $identifiers, Reference $reference)
+    function getDeviceWithPatientId($patientId)
     {
+        $request = $this->requestFactory->createRequest("GetDeviceWithPatientId", $patientId);
         
+        $this->requestProcessor->setRequest($request);
+        
+        $this->response = $this->requestProcessor->makeRequest();
+        
+        var_dump($this->response);
     }
     
     function toObject()
