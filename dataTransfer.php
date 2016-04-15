@@ -18,7 +18,7 @@ $patient = $fhir->getPatientWithIdentifier($tokenManager->getUserId());
 
 $device = $fhir->getDeviceWithPatientId($patient->getId());
 
-$observation = $fhir->getSingleObservations(array("_count"=>1,"subject"=>$patient->getId(),"device"=>$device->getId()));
+$observation = $fhir->getSingleObservations(array("_count"=>1,"subject"=>$patient->getId(),"device"=>$device->getId(), "date"=>"2016-04-04"));
 
 var_dump($observation);
 

@@ -22,6 +22,7 @@ $devId = "FitBitDevice1";
 $response = json_decode($getRequester->makeRequest("Patient", array("identifier"=>$patId)));
 
 if(property_exists($response, "entry")) {
+    var_dump($response);
     return http_response_code(409);
 } else {
     $pat = new PatientRequest;
