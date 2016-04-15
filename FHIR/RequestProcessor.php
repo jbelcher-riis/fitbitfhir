@@ -40,7 +40,15 @@ class RequestProcessor {
        
         # Setting our options
         curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, 1);
+        
+        if($this->request->getRequestType() == "POST")
+        {
+            curl_setopt($ch, CURLOPT_POST, 1);
+        }
+        else if($this->request->getRequestType() == "PUT"){
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        }
+        
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($this->request->getParams()));
         curl_setopt($ch, CURLOPT_HTTPHEADER,
                 array("Content-type: application/json","Accept: application/json"));
